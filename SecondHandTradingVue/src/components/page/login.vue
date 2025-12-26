@@ -3,7 +3,7 @@
     <el-card class="login-card">
       <div class="login-header">
         
-        <h1 class="login-title">二手图书交易管理系统</h1>
+        <h1 class="login-title">二手图书交易管理平台</h1>
         <p class="login-subtitle">让知识流动起来</p>
       </div>
       

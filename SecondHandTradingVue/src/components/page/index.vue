@@ -5,8 +5,8 @@
             <div style="min-height: 85vh;">
                 <!-- 页面标题和介绍 -->
                 <div class="page-header">
-                    <h1 class="page-title">校园二手闲置<span class="highlight">交易市场</span></h1>
-                    <p class="page-description">发现校园里的二手宝贝，让闲置物品焕发新生</p>
+                    <h1 class="page-title">二手图书<span class="highlight">交易管理平台</span></h1>
+                    <p class="page-description">让知识流动起来，让书籍找到新的主人</p>
                 </div>
 
                 <!-- 分类标签 -->
