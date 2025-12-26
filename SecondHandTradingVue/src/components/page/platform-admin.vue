@@ -4,7 +4,7 @@
 			<el-header height="60px" class="header-container">
 				<div class="header">
 					<div class="header-left">
-						<router-link to="/platform-admin" class="app-name">校园二手交易平台管理</router-link>
+						<router-link to="/platform-admin" class="app-name">二手图书交易管理平台</router-link>
 					</div>
 					<div class="header-right">
 						<span class="admin-info">管理员：{{admin.nickname}}</span>
