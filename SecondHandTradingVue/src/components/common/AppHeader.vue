@@ -4,7 +4,7 @@
             <div class="app-name">
                 <router-link to="/">
                     <i class="el-icon-s-shop"></i>
-                    校园二手闲置物品交易平台
+                    二手图书交易管理平台
                 </router-link>
             </div>
             <div class="app-name" >

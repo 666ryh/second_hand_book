@@ -22,57 +22,57 @@ export default new Router({
             path: '/index',
             /*组件懒加载*/
             component: () => import('../components/page/index.vue'),
-            meta: { title: '校园二手闲置物品交易平台' }
+            meta: { title: '二手图书交易管理平台' }
         },
         {
             path: '/search',
             component: () => import('../components/page/search.vue'),
-            meta: { title: '闲置搜索 | 校园二手闲置物品交易平台' }
+            meta: { title: '图书搜索 | 二手图书交易管理平台' }
         },
         {
             path: '/me',
             component: () => import('../components/page/me.vue'),
-            meta: { title: '个人中心 | 校园二手闲置物品交易平台' }
+            meta: { title: '个人中心 | 二手图书交易管理平台' }
         },
         {
             path: '/message',
             component: () => import('../components/page/message.vue'),
-            meta: { title: '消息 | 校园二手闲置物品交易平台' }
+            meta: { title: '消息 | 二手图书交易管理平台' }
         },
         {
             path: '/release',
             component: () => import('../components/page/release.vue'),
-            meta: { title: '发布闲置 | 校园二手闲置物品交易平台' }
+            meta: { title: '发布图书 | 二手图书交易管理平台' }
         },
         {
             path: '/jiaoyi',
             component: () => import('../components/page/jiaoyi.vue'),
-            meta: { title: '闲置详情 | 校园二手闲置物品交易平台' }
+            meta: { title: '图书详情 | 二手图书交易管理平台' }
         },
         {
             path: '/details',
             component: () => import('../components/page/idle-details.vue'),
-            meta: { title: '闲置详情 | 校园二手闲置物品交易平台' }
+            meta: { title: '图书详情 | 二手图书交易管理平台' }
         },
         {
             path: '/order',
             component: () => import('../components/page/order.vue'),
-            meta: { title: '订单详情 | 校园二手闲置物品交易平台' }
+            meta: { title: '订单详情 | 二手图书交易管理平台' }
         },
         {
             path: '/alipay/pay',
             component: () => import('../components/page/alipay-success.vue'),
-            meta: { title: '支付成功 | 校园二手闲置物品交易平台' }
+            meta: { title: '支付成功 | 二手图书交易管理平台' }
         },
         {
             path: '/login',
             component: () => import('../components/page/login.vue'),
-            meta: { title: '登录 | 校园二手闲置物品交易平台' }
+            meta: { title: '登录 | 二手图书交易管理平台' }
         },
         {
             path: '/sign-in',
             component: () => import('../components/page/sign-in.vue'),
-            meta: { title: '注册 | 校园二手闲置物品交易平台' }
+            meta: { title: '注册 | 二手图书交易管理平台' }
         },
         {
             path: '/login-admin',
