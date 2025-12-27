@@ -5,30 +5,30 @@
             <div style="min-height: 85vh;">
                 <!-- 页面标题和介绍 -->
                 <div class="page-header">
-                    <h1 class="page-title">二手图书<span class="highlight">交易管理平台</span></h1>
-                    <p class="page-description">让知识流动起来，让书籍找到新的主人</p>
+                    <h1 class="page-title">二手图书<span class="highlight">交易管理系统</span></h1>
+                    <p class="page-description">让知识流动起来，让书籍找到新的主人 📚</p>
                 </div>
 
                 <!-- 分类标签 -->
                 <div class="category-tabs">
                     <el-tabs v-model="labelName" type="border-card" @tab-click="handleClick" class="custom-tabs">
-                        <el-tab-pane label="全部" name="0">
-                            <i class="el-icon-s-grid tab-icon"></i> 全部
+                        <el-tab-pane label="全部图书" name="0">
+                            <i class="el-icon-s-grid tab-icon"></i> 全部图书
                         </el-tab-pane>
-                        <el-tab-pane label="数码科技" name="1">
-                            <i class="el-icon-mobile-phone tab-icon"></i> 数码科技
+                        <el-tab-pane label="教材教辅" name="1">
+                            <i class="el-icon-reading tab-icon"></i> 教材教辅
                         </el-tab-pane>
-                        <el-tab-pane label="生活用品" name="2">
-                            <i class="el-icon-toilet-paper tab-icon"></i> 生活用品
+                        <el-tab-pane label="文学小说" name="2">
+                            <i class="el-icon-notebook-1 tab-icon"></i> 文学小说
                         </el-tab-pane>
-                        <el-tab-pane label="运动相关" name="3">
-                            <i class="el-icon-basketball tab-icon"></i> 运动相关
+                        <el-tab-pane label="专业书籍" name="3">
+                            <i class="el-icon-document tab-icon"></i> 专业书籍
                         </el-tab-pane>
-                        <el-tab-pane label="图书笔记" name="4">
-                            <i class="el-icon-notebook-2 tab-icon"></i> 图书笔记
+                        <el-tab-pane label="考试考研" name="4">
+                            <i class="el-icon-edit-outline tab-icon"></i> 考试考研
                         </el-tab-pane>
-                        <el-tab-pane label="公告展示" name="5">
-                            <i class="el-icon-bell tab-icon"></i> 公告展示
+                        <el-tab-pane label="求购信息" name="5">
+                            <i class="el-icon-bell tab-icon"></i> 求购信息
                         </el-tab-pane>
                     </el-tabs>
                 </div>
@@ -105,11 +105,11 @@
                 currentPage: 1,
                 totalItem: 1,
                 categories: {
-                    '1': '数码科技',
-                    '2': '生活用品',
-                    '3': '运动相关',
-                    '4': '图书笔记',
-                    '5': '公告'
+                    '1': '教材教辅',
+                    '2': '文学小说',
+                    '3': '专业书籍',
+                    '4': '考试考研',
+                    '5': '求购'
                 }
             };
         },

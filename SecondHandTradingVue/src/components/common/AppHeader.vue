@@ -3,8 +3,8 @@
         <div class="header-container">
             <div class="app-name">
                 <router-link to="/">
-                    <i class="el-icon-s-shop"></i>
-                    二手图书交易管理平台
+                    <i class="el-icon-reading"></i>
+                    二手图书交易管理系统
                 </router-link>
             </div>
             <div class="app-name" >
@@ -14,9 +14,9 @@
                 </router-link>
             </div>
             <div class="search-container">
-                <el-input 
-                    placeholder="搜索二手物品..." 
-                    v-model="searchValue" 
+                <el-input
+                    placeholder="搜索二手图书..."
+                    v-model="searchValue"
                     @keyup.enter.native="searchIdle"
                     prefix-icon="el-icon-search"
                     clearable>
@@ -34,12 +34,12 @@
                     我的交易
                 </el-button>
                 
-                <el-button 
-                    type="primary" 
-                    icon="el-icon-plus" 
-                    class="publish-btn" 
+                <el-button
+                    type="primary"
+                    icon="el-icon-plus"
+                    class="publish-btn"
                     @click="toRelease">
-                    发布闲置/公告
+                    发布图书/求购
                 </el-button>
                 
                 <el-button 

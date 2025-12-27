@@ -6,9 +6,9 @@
                 <el-card class="release-card" shadow="hover">
                     <div slot="header" class="release-header">
                         <h2 class="release-title">
-                            <i class="el-icon-upload2"></i> 发布闲置/公告
+                            <i class="el-icon-upload2"></i> 发布图书/求购
                         </h2>
-                        <p class="release-subtitle">在这里发布您想出售的闲置物品或校园公告</p>
+                        <p class="release-subtitle">在这里发布您想出售的二手图书或发布求购信息</p>
                     </div>
                     
                     <el-form label-position="top" :model="idleItemInfo" class="release-form">
@@ -18,9 +18,9 @@
                                 <i class="el-icon-document"></i> 基本信息
                             </div>
                             
-                            <el-form-item label="标题">
-                                <el-input 
-                                    placeholder="请输入闲置/公告标题（简洁醒目更容易吸引买家）" 
+                            <el-form-item label="图书标题">
+                                <el-input
+                                    placeholder="请输入图书名称（如：《Java编程思想》第4版）"
                                     v-model="idleItemInfo.idleName"
                                     maxlength="30"
                                     prefix-icon="el-icon-edit"
@@ -33,7 +33,7 @@
                                     class="release-idle-details"
                                     type="textarea"
                                     :rows="4"
-                                    placeholder="请详细描述您的闲置物品状况、新旧程度、购买渠道等信息，或公告的具体内容..."
+                                    placeholder="请详细描述图书的成色、购买时间、是否有笔记、是否包邮等信息..."
                                     v-model="idleItemInfo.idleDetails"
                                     maxlength="1000"
                                     show-word-limit>
@@ -49,10 +49,10 @@
                             
                             <el-row :gutter="20">
                                 <el-col :span="12">
-                                    <el-form-item label="闲置类别">
-                                        <el-select 
-                                            v-model="idleItemInfo.idleLabel" 
-                                            placeholder="请选择类别"
+                                    <el-form-item label="图书分类">
+                                        <el-select
+                                            v-model="idleItemInfo.idleLabel"
+                                            placeholder="请选择图书分类"
                                             style="width: 100%"
                                             class="category-select">
                                             <el-option
@@ -85,7 +85,7 @@
                                         </el-input-number>
                                     </el-form-item>
                                     <div v-else class="notice-hint">
-                                        <i class="el-icon-info"></i> 公告类型无需设置价格
+                                        <i class="el-icon-info"></i> 求购信息无需设置价格
                                     </div>
                                 </el-col>
                             </el-row>
@@ -148,14 +148,14 @@
                         
                         <!-- 提交按钮 -->
                         <div class="submit-section">
-                            <el-button 
-                                type="primary" 
-                                round 
-                                :icon="idleItemInfo.idleLabel === 5 ? 'el-icon-s-flag' : 'el-icon-shopping-bag-1'"
+                            <el-button
+                                type="primary"
+                                round
+                                :icon="idleItemInfo.idleLabel === 5 ? 'el-icon-s-flag' : 'el-icon-reading'"
                                 @click="releaseButton"
                                 :loading="submitting"
                                 class="submit-button">
-                                {{ idleItemInfo.idleLabel === 5 ? '发布公告' : '发布闲置' }}
+                                {{ idleItemInfo.idleLabel === 5 ? '发布求购' : '发布图书' }}
                             </el-button>
                             <el-button 
                                 round 
@@ -196,19 +196,19 @@
                 submitting: false,
                 options2: [{
                     value: 1,
-                    label: '数码科技'
+                    label: '教材教辅'
                 }, {
                     value: 2,
-                    label: '生活用品'
+                    label: '文学小说'
                 }, {
                     value: 3,
-                    label: '运动相关'
+                    label: '专业书籍'
                 }, {
                     value: 4,
-                    label: '图书笔记'
+                    label: '考试考研'
                 }, {
                     value: 5,
-                    label: '公告展示'
+                    label: '求购信息'
                 }],
                 imgList: [],
                 idleItemInfo: {
@@ -224,13 +224,13 @@
         methods: {
             getCategoryIcon(categoryId) {
                 const icons = {
-                    1: 'el-icon-mobile-phone',
-                    2: 'el-icon-box',
-                    3: 'el-icon-football',
-                    4: 'el-icon-reading',
+                    1: 'el-icon-reading',
+                    2: 'el-icon-notebook-1',
+                    3: 'el-icon-document',
+                    4: 'el-icon-edit-outline',
                     5: 'el-icon-s-flag'
                 };
-                return icons[categoryId] || 'el-icon-goods';
+                return icons[categoryId] || 'el-icon-reading';
             },
             handleChange(value) {
                 console.log(value);
@@ -268,7 +268,7 @@
                     return;
                 }
                 if (!this.idleItemInfo.idleLabel) {
-                    this.$message.error('请选择闲置类别！');
+                    this.$message.error('请选择图书分类！');
                     return;
                 }
                 if (this.idleItemInfo.idleLabel !== 5 && (this.idleItemInfo.idlePrice <= 0)) {

@@ -25,7 +25,7 @@
                                 <span class="price-symbol">¥</span>{{idleItemInfo.idlePrice}}
                             </div>
                             <div v-if="!isMaster && idleItemInfo.idleStatus!==1" class="product-status">
-                                <i class="el-icon-warning-outline"></i> 闲置已下架或删除
+                                <i class="el-icon-warning-outline"></i> 图书已下架或删除
                             </div>
                             <div class="action-buttons">
                                 <el-button 
@@ -237,11 +237,11 @@
                 isFavorite:true,
                 favoriteId:0,
                 categories: {
-                    '1': '数码科技',
-                    '2': '生活用品',
-                    '3': '运动相关',
-                    '4': '图书笔记',
-                    '5': '公告'
+                    '1': '教材教辅',
+                    '2': '文学小说',
+                    '3': '专业书籍',
+                    '4': '考试考研',
+                    '5': '求购'
                 }
             };
         },
@@ -340,7 +340,7 @@
                     if(res.status_code===1){
                         this.idleItemInfo.idleStatus=status;
                         this.$message({
-                            message: status === 1 ? '商品已重新上架' : '商品已下架',
+                            message: status === 1 ? '图书已重新上架' : '图书已下架',
                             type: 'success'
                         });
                     }else {

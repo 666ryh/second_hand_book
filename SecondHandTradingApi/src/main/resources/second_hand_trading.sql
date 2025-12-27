@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 80032 (8.0.32)
  Source Host           : localhost:3306
- Source Schema         : second_hand_trading
+ Source Schema         : second_hand_book_trading
 
  Target Server Type    : MySQL
  Target Server Version : 80032 (8.0.32)
  File Encoding         : 65001
 
- Date: 11/10/2025 15:49:15
+ Date: 27/12/2025 16:40:00
 */
 
 SET NAMES utf8mb4;
@@ -71,7 +71,7 @@ CREATE TABLE `sh_favorite`  (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增主键id',
   `create_time` datetime NOT NULL COMMENT '加入收藏的时间',
   `user_id` bigint NOT NULL COMMENT '用户主键id',
-  `idle_id` bigint NOT NULL COMMENT '闲置物主键id',
+  `idle_id` bigint NOT NULL COMMENT '图书主键id',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `user_id`(`user_id` ASC, `idle_id` ASC) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '收藏信息表' ROW_FORMAT = DYNAMIC;
@@ -94,18 +94,22 @@ INSERT INTO `sh_favorite` VALUES (66, '2024-09-16 06:42:17', 37, 181);
 DROP TABLE IF EXISTS `sh_idle_item`;
 CREATE TABLE `sh_idle_item`  (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增主键',
-  `idle_name` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '闲置物名称',
-  `idle_details` varchar(2048) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '详情',
-  `picture_list` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '图集',
-  `idle_price` decimal(10, 2) NOT NULL COMMENT '价格',
+  `idle_name` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '图书名称',
+  `idle_details` varchar(2048) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '图书详情描述',
+  `picture_list` varchar(1024) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '图书图片集',
+  `idle_price` decimal(10, 2) NOT NULL COMMENT '图书价格',
   `idle_place` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '发货地区',
-  `idle_label` int NOT NULL COMMENT '分类标签',
+  `idle_label` int NOT NULL COMMENT '图书分类标签（1-教材教辅 2-文学小说 3-专业书籍 4-考试考研 5-求购信息）',
   `release_time` datetime NOT NULL COMMENT '发布时间',
   `idle_status` tinyint NOT NULL COMMENT '状态（发布1、下架2、删除0）',
   `user_id` bigint NOT NULL COMMENT '用户主键id',
+  `book_author` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '图书作者',
+  `book_isbn` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '图书ISBN',
+  `book_publisher` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '出版社',
+  `book_condition` tinyint NULL DEFAULT NULL COMMENT '图书成色（1-全新 2-九成新 3-八成新 4-七成新 5-其他）',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id_index`(`user_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 189 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '二手商品表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 189 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '二手图书表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sh_idle_item
@@ -226,7 +230,7 @@ DROP TABLE IF EXISTS `sh_message`;
 CREATE TABLE `sh_message`  (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增主键',
   `user_id` bigint NOT NULL COMMENT '用户主键id',
-  `idle_id` bigint NOT NULL COMMENT '闲置主键id',
+  `idle_id` bigint NOT NULL COMMENT '图书主键id',
   `content` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '留言内容',
   `create_time` datetime NOT NULL COMMENT '留言时间',
   `to_user` bigint NOT NULL COMMENT '所回复的用户',
@@ -268,7 +272,7 @@ CREATE TABLE `sh_order`  (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '自增主键',
   `order_number` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '订单编号',
   `user_id` bigint NOT NULL COMMENT '用户主键id',
-  `idle_id` bigint NOT NULL COMMENT '闲置物品主键id',
+  `idle_id` bigint NOT NULL COMMENT '图书主键id',
   `order_price` decimal(10, 2) NOT NULL COMMENT '订单总价',
   `payment_status` tinyint NOT NULL COMMENT '支付状态',
   `payment_way` varchar(16) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT '支付方式',

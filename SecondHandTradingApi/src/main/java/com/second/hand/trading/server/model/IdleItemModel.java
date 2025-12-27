@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * sh_idle_item
- * @author 
+ * sh_idle_item - 二手图书模型
+ * @author
  */
 public class IdleItemModel implements Serializable {
     /**
@@ -15,22 +15,22 @@ public class IdleItemModel implements Serializable {
     private Long id;
 
     /**
-     * 闲置物名称
+     * 图书名称
      */
     private String idleName;
 
     /**
-     * 详情
+     * 图书详情描述
      */
     private String idleDetails;
 
     /**
-     * 图集
+     * 图书图片集
      */
     private String pictureList;
 
     /**
-     * 价格
+     * 图书价格
      */
     private BigDecimal idlePrice;
 
@@ -40,7 +40,7 @@ public class IdleItemModel implements Serializable {
     private String idlePlace;
 
     /**
-     * 分类标签
+     * 图书分类标签（1-教材教辅 2-文学小说 3-专业书籍 4-考试考研 5-求购信息）
      */
     private Integer idleLabel;
 
@@ -58,6 +58,26 @@ public class IdleItemModel implements Serializable {
      * 用户主键id
      */
     private Long userId;
+
+    /**
+     * 图书作者
+     */
+    private String bookAuthor;
+
+    /**
+     * 图书ISBN
+     */
+    private String bookIsbn;
+
+    /**
+     * 出版社
+     */
+    private String bookPublisher;
+
+    /**
+     * 图书成色（1-全新 2-九成新 3-八成新 4-七成新 5-其他）
+     */
+    private Byte bookCondition;
 
     private UserModel user;
 
@@ -149,6 +169,38 @@ public class IdleItemModel implements Serializable {
 
     public void setUser(UserModel user) {
         this.user = user;
+    }
+
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public void setBookAuthor(String bookAuthor) {
+        this.bookAuthor = bookAuthor;
+    }
+
+    public String getBookIsbn() {
+        return bookIsbn;
+    }
+
+    public void setBookIsbn(String bookIsbn) {
+        this.bookIsbn = bookIsbn;
+    }
+
+    public String getBookPublisher() {
+        return bookPublisher;
+    }
+
+    public void setBookPublisher(String bookPublisher) {
+        this.bookPublisher = bookPublisher;
+    }
+
+    public Byte getBookCondition() {
+        return bookCondition;
+    }
+
+    public void setBookCondition(Byte bookCondition) {
+        this.bookCondition = bookCondition;
     }
 
     @Override
